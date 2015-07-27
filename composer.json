@@ -28,13 +28,13 @@
 
     "autoload": {
         "psr-4": {
-            "Readit\\": "Readit"
+            "App\\": "app/src"
         }
     },
 
     "autoload-dev": {
         "psr-4": {
-            "Tests\\Readit\\": "Tests/Readit/"
+            "App\\": "app/src"
         }
     },
 
@@ -42,12 +42,12 @@
         "php": ">=5.4",
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
-        "slim/slim": "*",
-        "slim/views": "0.*",
-        "twig/twig": ">=1.8.0,<2.0-dev",
+        "slim/slim": "^3.0@beta",
+        "slim/twig-view": "^1.1",
+        "slim/flash": "dev-master",
         "swiftmailer/swiftmailer": "~5.0",
         "psr/log": "~1.0",
-        "monolog/monolog": "~1.6"
+        "monolog/monolog": "^1.13"
     },
 
     "require-dev": {
