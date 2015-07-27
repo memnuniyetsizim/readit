@@ -1,0 +1,71 @@
+{
+    "name"             : "memnuniyetsizim/readit",
+    "description"      : "Simple rss reader.",
+    "minimum-stability": "stable",
+    "type"             : "library",
+    "keywords"         : ["php", "rss", "xml", "reader"],
+    "homepage"         : "http://r.ead.me/",
+
+    "authors": [
+        {
+          "name": "Engin Vardar",
+          "email": "enginvardar@gmail.com"
+        },
+        {
+          "name": "Mehmet Ali Ergut",
+          "email": "mim@taximact.com"
+        },
+        {
+          "name": "Mustafa Velioglu",
+          "email": "me@mustafavelioglu.com"
+        }
+    ],
+
+    "support": {
+        "issues": "https://bitbucket.org/memnuniyetsizim/readit/issues",
+        "source": "https://bitbucket.org/memnuniyetsizim/readit"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Readit\\": "Readit"
+        }
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Readit\\": "Tests/Readit/"
+        }
+    },
+
+    "require": {
+        "php": ">=5.4",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
+        "slim/slim": "*",
+        "slim/views": "0.*",
+        "twig/twig": ">=1.8.0,<2.0-dev",
+        "swiftmailer/swiftmailer": "~5.0",
+        "psr/log": "~1.0",
+        "monolog/monolog": "~1.6"
+    },
+
+    "require-dev": {
+        "phpunit/phpunit": "~4.5",
+        "codeception/codeception": "*",
+        "phpmd/phpmd": "~2.0",
+        "squizlabs/php_codesniffer": "~2.3",
+        "block8/php-docblock-checker": "~1.0",
+        "phploc/phploc": "~2.0"
+    },
+
+    "suggest": {
+        "block8/php-docblock-checker": "PHP Docblock Checker",
+        "phpmd/phpmd": "PHP Mess Detector",
+        "sebastian/phpcpd": "PHP Copy/Paste Detector",
+        "squizlabs/php_codesniffer": "PHP Code Sniffer",
+        "phpspec/phpspec": "PHP Spec",
+        "fabpot/php-cs-fixer": "PHP Code Sniffer Fixer",
+        "phploc/phploc": "PHP Lines of Code"
+    }
+}
