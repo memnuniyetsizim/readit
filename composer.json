@@ -28,13 +28,15 @@
 
     "autoload": {
         "psr-4": {
-            "App\\": "app/src"
+            "App\\": "app/src",
+            "FeedAdaptor\\": "feedadaptor"
         }
     },
 
     "autoload-dev": {
         "psr-4": {
-            "App\\": "app/src"
+            "App\\": "app/src",
+            "FeedAdapter\\": "feedadapter"
         }
     },
 

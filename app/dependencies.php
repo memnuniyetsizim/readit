@@ -19,6 +19,8 @@ $container['logger'] = function ($c) {
     return $logger;
 };
 
+$container['adapterFactory'] = new FeedAdapter\AdapterFactory();
+
 $container['App\Action\HomeAction'] = function ($c) {
     return new App\Action\HomeAction($c['view'], $c['logger']);
 };
