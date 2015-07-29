@@ -29,14 +29,14 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/src",
-            "FeedAdaptor\\": "feedadaptor"
+            "FeedAdaptor\\": "app/src/Repository/FeedAdapter"
         }
     },
 
     "autoload-dev": {
         "psr-4": {
             "App\\": "app/src",
-            "FeedAdapter\\": "feedadapter"
+            "FeedAdapter\\": "app/src/Repository/FeedAdapter"
         }
     },
 
