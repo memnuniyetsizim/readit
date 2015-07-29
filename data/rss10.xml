@@ -1,0 +1,425 @@
+<?xml version="1.0"?>
+<?xml-stylesheet
+        href="http://www.w3.org/2000/08/w3c-synd/style.css" type="text/css"
+        ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:admin="http://webns.net/mvcb/" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel rdf:about="http://planet-php.net"><title>Planet PHP</title><link>http://planet-php.net</link><description>People blogging about PHP</description><dc:language>en</dc:language><dc:date>2015-07-29T16:00:00Z</dc:date><dc:creator>NN</dc:creator><admin:generatorAgent rdf:resource="http://planet-php.net"/><admin:errorReportsTo rdf:resource="mailto:chregu@bitflux.ch"/><sy:updatePeriod>hourly</sy:updatePeriod><sy:updateFrequency>1</sy:updateFrequency><sy:updateBase>2000-01-01T12:00+00:00</sy:updateBase><items><rdf:Seq><rdf:li rdf:resource="http://www.sitepoint.com/using-selenium-with-phpunit/"/><rdf:li rdf:resource="http://php-and-symfony.matthiasnoback.nl/2015/07/behind-the-scenes-at-coolblue"/><rdf:li rdf:resource="http://www.phpclasses.org/blog/post/301-What-You-Should-Do-Before-Pushing-PHP-Code-to-your-Production-GIT-Repository.html"/><rdf:li rdf:resource="http://blog.wyrihaximus.net/2015/07/composer-cache-on-travis/"/><rdf:li rdf:resource="http://mwop.net/blog/2015-07-28-on-psr7-headers.html"/><rdf:li rdf:resource="http://akrabat.com/checking-your-code-for-psr-2/"/><rdf:li rdf:resource="http://feedproxy.google.com/~r/VoicesOfTheElephpant/~3/MShU5hFo1p4/"/><rdf:li rdf:resource="http://www.phpclasses.org/reviews/id/symfonycer.html#review176"/><rdf:li rdf:resource="http://www.sitepoint.com/speeding-up-existing-apps-with-a-redis-cache/"/><rdf:li rdf:resource="http://www.phpclasses.org/blog/package/9195/post/1-How-to-Render-3D-Surfaces-in-PHP-using-2D-Contour-Plots.html"/></rdf:Seq></items></channel><item rdf:about="http://www.sitepoint.com/using-selenium-with-phpunit/"><title>Using Selenium with PHPUnit</title><link>http://www.sitepoint.com/using-selenium-with-phpunit/</link><dc:date>2015-07-29T16:00:00Z</dc:date><dc:creator>SitePoint PHP</dc:creator><description><![CDATA[<p>Testing is a really wide subject, whether it be unit testing, functional testing, acceptance testing, etc. In this article, we’re going to see how you can do acceptance testing using <a href="http://www.seleniumhq.org">Selenium</a>. I will use a practical example to illustrate a real use case. I will assume that you already know how to do <a href="http://www.sitepoint.com/basic-tdd-new-php-package/">unit testing</a> using PHPUnit, or that you at least have a grasp of what it’s all about. Let’s get started.</p>
+<p><img src="http://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2015/07/1436173768Fotolia_67853218_Subscription_Monthly_M-1024x819.jpg" alt="Image of some checkboxes being checked" title=""/></p>
+<h2 id="what-is-acceptance-testing">What Is Acceptance Testing?</h2>
+<p>Acceptance testing is the process of telling user stories through tests, and I love this quote to describe it:</p>
+<blockquote>
+<p>A formal test conducted to determine whether or not a system satisfies its acceptance criteria and to enable the customer to determine whether or not to accept the system. </p>
+</blockquote>
+<h2 id="what-is-selenium">What Is Selenium?</h2>
+<p>Selenium is a tool to automate user interface testing. It helps with testing your application against the browser. The process could be described like so:</p>
+<ul>
+<li>Go to the page <code>http://myapp.dev/videos</code>.</li>
+<li>Assert the page contains a list of 20 videos.</li>
+<li>Click number two on the pagination.</li>
+<li>Assert the page contains a list of 20 videos.</li>
+<li>Quit the browser.</li>
+</ul>
+<p>You may be wondering: “How does it manipulate the web page using the described tests?”</p>
+<p>The answer is “it depends”. If you’re using Selenium RC (previously named Selenium 1), it will inject auto generated JavaScript code to the page to perform the desired actions. Selenium RC is deprecated and is only supported in maintenance mode; you should be using Selenium WebDriver.</p>
+<p>When using Selenium WebDriver (Selenium 2), the tests are translated into commands and passed to the Selenium server (more about that in a moment), then passed to the browser using the web browser native API.</p>
+<p><em>Continue reading %<a rel="nofollow" href="http://www.sitepoint.com/using-selenium-with-phpunit/">Using Selenium with PHPUnit</a>%</em></p>
+]]></description><content:encoded><![CDATA[<p>Testing is a really wide subject, whether it be unit testing, functional testing, acceptance testing, etc. In this article, we’re going to see how you can do acceptance testing using <a href="http://www.seleniumhq.org">Selenium</a>. I will use a practical example to illustrate a real use case. I will assume that you already know how to do <a href="http://www.sitepoint.com/basic-tdd-new-php-package/">unit testing</a> using PHPUnit, or that you at least have a grasp of what it’s all about. Let’s get started.</p>
+<p><img src="http://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2015/07/1436173768Fotolia_67853218_Subscription_Monthly_M-1024x819.jpg" alt="Image of some checkboxes being checked" title=""/></p>
+<h2 id="what-is-acceptance-testing">What Is Acceptance Testing?</h2>
+<p>Acceptance testing is the process of telling user stories through tests, and I love this quote to describe it:</p>
+<blockquote>
+<p>A formal test conducted to determine whether or not a system satisfies its acceptance criteria and to enable the customer to determine whether or not to accept the system. </p>
+</blockquote>
+<h2 id="what-is-selenium">What Is Selenium?</h2>
+<p>Selenium is a tool to automate user interface testing. It helps with testing your application against the browser. The process could be described like so:</p>
+<ul>
+<li>Go to the page <code>http://myapp.dev/videos</code>.</li>
+<li>Assert the page contains a list of 20 videos.</li>
+<li>Click number two on the pagination.</li>
+<li>Assert the page contains a list of 20 videos.</li>
+<li>Quit the browser.</li>
+</ul>
+<p>You may be wondering: “How does it manipulate the web page using the described tests?”</p>
+<p>The answer is “it depends”. If you’re using Selenium RC (previously named Selenium 1), it will inject auto generated JavaScript code to the page to perform the desired actions. Selenium RC is deprecated and is only supported in maintenance mode; you should be using Selenium WebDriver.</p>
+<p>When using Selenium WebDriver (Selenium 2), the tests are translated into commands and passed to the Selenium server (more about that in a moment), then passed to the browser using the web browser native API.</p>
+<p><em>Continue reading %<a rel="nofollow" href="http://www.sitepoint.com/using-selenium-with-phpunit/">Using Selenium with PHPUnit</a>%</em></p>
+]]></content:encoded></item><item rdf:about="http://php-and-symfony.matthiasnoback.nl/2015/07/behind-the-scenes-at-coolblue"><title>Behind the scenes at Coolblue</title><link>http://php-and-symfony.matthiasnoback.nl/2015/07/behind-the-scenes-at-coolblue</link><dc:date>2015-07-29T08:57:00Z</dc:date><dc:creator>Matthias Noback</dc:creator><description><![CDATA[]]></description><content:encoded><![CDATA[<h3>Leaving Qandidate, off to Coolblue</h3>
+
+<p>After I had a very interesting conversation with the <a href="http://php-and-symfony.matthiasnoback.nl/2015/07/meeting-the-broadway-team/">developers behind the Broadway framework for CQRS and event sourcing</a> the day wasn't over for me yet. I walked about one kilometer to the north to meet <a href="https://twitter.com/pderaaij">Paul de Raaij</a>, who is a senior developer at <a href="http://www.coolblue.nl">Coolblue</a>, a company which sells and delivers all kinds of - mostly - electrical consumer devices. Their headquarters are very close to the new and shiny Rotterdam Central station. The company itself is doing quite well. With 1000+ employees they keep needing more office space.</p>
+
+<p>Paul showed me around all departments and offices, which nowadays span three floors. There's developer teams everywhere. It's not a PHP-only company. Though PHP is well represented, there are also .NET and Delphi developers. Coolblue runs on quite a lot of software and hardware.</p>
+
+<h3>Heritage</h3>
+
+<p>Developers at Coolblue have learnt to call the legacy software they maintain "heritage". "Legacy software" often has a negative sound to it, while in fact, it's what enables the company itself to be so successful, so it doesn't really deserve that negative image. I don't fully agree with this approach since most of the relevant literature about this subject speaks of "legacy software", which, to me personally, doesn't mean anything bad. I'm well aware that anything I write today will be "legacy" tomorrow, because, literally, other people inherit that piece of code and need to maintain it. In my dictionary, "legacy software" isn't a bad thing (though I know that it often is, so I understand this little play of words).</p>
+
+<h3>New things: microservices</h3>
+
+<p>Paul mentioned that there is an ongoing struggle amongst developers who rather want to try "new" things, while they feel stuck in the "old" way of doing things. Paul argues that it's <em>always</em> possible to try something "new" in an older project as well. The infrastructure may not be there for it yet, but introducing it might therefore be even more challenging, as well as more satisfying. I fully agree with Paul on this, and I also like to work on an older code-base and introduce new concepts to it. Anyway, in my personal experience, thinking that you're better off working on a green-field application, because you can do everything "the right way", often turns out to be quite a fallacy. I'm sure you'll recognize this sentiment as well.</p>
+
+<p>At Coolblue, "new things" currently means <em>event sourcing</em> and <em>microservices</em>. They have introduced several microservices so far. Microservices are one of these things Coolblue developers have been wanting to introduce for quite some time. It turned out to be not that hard, but, according to Paul, the key was to keep it small at first. They started by extracting several smaller and less crucial parts from the main application into microservices. You can read about some of their experiences on <a href="http://devblog.coolblue.nl/">devblog.coolblue.nl</a>.</p>
+
+<h3>New things: event sourcing</h3>
+
+<p>Paul and others have done quite some research with regard to event sourcing as well. They haven't taken the step yet to implement it in their software. Take a look at this <a href="http://www.slideshare.net/pderaaij/cqrs-espresentation">slide deck</a> to get an impression of what it might look like for them when they do.</p>
+
+<p>Paul made an interesting observation with regard to "new things": there is often a mismatch between what a developer thinks of themselves, and what that same developer thinks of other developers. When listening to meetup or conference talks, you may start thinking that you're way behind on current developments in the world of (PHP) software development. Paul at first felt the same, but noticed that when you actually talk to developers about what you're doing, it might just as well turn out that you're doing fine.</p>
+
+<h3>Teams</h3>
+
+<p>Developer teams at Coolblue are separated based on the features they work on. There is a team working on "pre-cart", i.e. everything related to the presentation of the products, their categories, etc. Then there's a "post-cart" team, which works on actually making the sale, payment, etc. Paul himself is moving from team to team mostly, helping everyone solve any issues that they may be facing. This way, he gets a nice overview which enables him to take knowledge from each team to other teams. This also helps preventing the same mistakes from being made in different teams.</p>
+
+<p>Walking through the corridors, we pass a lot of "team rooms". Walls are made of glass, but each team is still nicely separated from the others. They can see, but not hear each other, meaning that they can focus on what they're working on, while still feeling part of the organization. It appears that each team consists of about </p><p><i>Truncated by Planet PHP, read more at <a href="http://php-and-symfony.matthiasnoback.nl/2015/07/behind-the-scenes-at-coolblue">the original</a> (another 2767 bytes)</i></p>]]></content:encoded></item><item rdf:about="http://www.phpclasses.org/blog/post/301-What-You-Should-Do-Before-Pushing-PHP-Code-to-your-Production-GIT-Repository.html"><title>What You Should Do Before Pushing PHP Code to your Production GIT Repository</title><link>http://www.phpclasses.org/blog/post/301-What-You-Should-Do-Before-Pushing-PHP-Code-to-your-Production-GIT-Repository.html</link><dc:date>2015-07-29T04:31:00Z</dc:date><dc:creator>PHP Classes</dc:creator><description><![CDATA[<div style="clear: both">
+<div style="margin-top: 1ex"><a href="http://www.phpclasses.org/blog/post/301-What-You-Should-Do-Before-Pushing-PHP-Code-to-your-Production-GIT-Repository.html">What You Should Do Before Pushing PHP Code to your Production GIT Repository</a></div>
+<div style="margin-top: 1ex">By Suresh Kumar</a></div>
+<div style="margin-top: 1ex">Every time you commit new code to a Git repository, there is a great chance that the code has problems that were not detected with your usual batch of tests.<br />
+<br />
+Read this article to learn how to integrate PHP Code Sniffer with your project Git commit process to inspect your PHP code automatically and prevent that code with problems is committed.</a></div>
+</div>
+]]></description><content:encoded><![CDATA[<div style="clear: both">
+<div style="margin-top: 1ex"><a href="http://www.phpclasses.org/blog/post/301-What-You-Should-Do-Before-Pushing-PHP-Code-to-your-Production-GIT-Repository.html">What You Should Do Before Pushing PHP Code to your Production GIT Repository</a></div>
+<div style="margin-top: 1ex">By Suresh Kumar</a></div>
+<div style="margin-top: 1ex">Every time you commit new code to a Git repository, there is a great chance that the code has problems that were not detected with your usual batch of tests.<br />
+<br />
+Read this article to learn how to integrate PHP Code Sniffer with your project Git commit process to inspect your PHP code automatically and prevent that code with problems is committed.</a></div>
+</div>
+]]></content:encoded></item><item rdf:about="http://blog.wyrihaximus.net/2015/07/composer-cache-on-travis/"><title>Composer cache on Travis</title><link>http://blog.wyrihaximus.net/2015/07/composer-cache-on-travis/</link><dc:date>2015-07-28T22:00:00Z</dc:date><dc:creator>Cees-Jan Kiewiet</dc:creator><description><![CDATA[]]></description><content:encoded><![CDATA[<p>Ever since the <a href="/2015/06/test-lowest-current-and-highest-possible-on-travis/">Test lowest, current, and highest possible on Travis</a> post I wanted to dive into caching composers cache and vendor on Travis. My experiments started the day after that post.</p>
+
+<p><img src="/images/posts/docker-travis-composer-packagist.png" alt="Docker Composer Packagist Travis Hybrid" /></p>
+
+]]></content:encoded></item><item rdf:about="http://mwop.net/blog/2015-07-28-on-psr7-headers.html"><title>On PSR7 and HTTP Headers</title><link>http://mwop.net/blog/2015-07-28-on-psr7-headers.html</link><dc:date>2015-07-28T14:00:00Z</dc:date><dc:creator>Matthew Weier O'Phinney</dc:creator><description><![CDATA[]]></description><content:encoded><![CDATA[<p>
+  Yesterday, a question tagged #psr7 on Twitter caught my eye:
+</p>
+
+<blockquote>
+  <p>
+    #psr7 Request::getHeader($name) return array of single string instead of
+    strings in #Slim3? cc: @codeguy pic.twitter.com/ifA9hCKAPs
+  </p>
+
+  <footer><cite>
+      <a href="https://twitter.com/feryardiant">@feryardiant</a>
+      (<a href="https://twitter.com/feryardiant/status/624705995097247744">tweet</a>)
+    </cite>
+  </footer></blockquote>
+
+<p>
+  The image linked provides the following details:
+</p>
+
+<blockquote>
+  <p>
+    When I call <code>$request->getHeader('Accept')</code> for example, I was expected
+    that I'll get something like this:
+  </p>
+
+  <pre><code class="language-php">
+Array(
+    [0] => text/html,
+    [1] => application/xhtml+xml,
+    [2] => application/xml,
+)
+  </code></pre>
+
+  <p>
+    but, in reallity I got this:
+  </p>
+
+  <pre><code class="language-php">
+Array(
+    [0] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+)
+  </code></pre>
+
+  <p>
+    Is it correct?
+  </p>
+</blockquote>
+
+<p>
+  In this post, I'll explain why the behavior observed is correct, as well as
+  shed a light on a few details of header handling in
+  <a href="http://www.php-fig.org/psr/psr-7/">PSR-7</a>.
+</p>
+<h2>Headers in PSR-7</h2>
+
+<p>
+  When creating the PSR-7 specification, we had to juggle a fair number of
+  details from the various HTTP specifications. Headers are one area that is
+  particularly difficult, due to the flexibility and ambiguity in the
+  specification.
+</p>
+
+<p>
+  The root of the ambiguity is that headers are allowed to have multiple values.
+  Headers <em>may</em> have multiple values, but it's up to the specification
+  for any given header.
+</p>
+
+<p>
+  Additionally how multiple values are represented is up to the given header.
+  The HTTP specifications allow using multiple invocations for the same header:
+</p>
+
+<pre><code class="language-http">
+X-Foo-Bar: baz
+X-Foo-Bar: bat
+</code></pre>
+
+<p>
+  The above would mean that the <code>X-Foo-Bar</code> header has two values,
+  <code>baz</code> and <code>bat</code>. Assuming the header allows multiple
+  values at all; if it doesn't, then it has a single value, and the last
+  representation wins (<code>bat</code>, if you're paying attention).
+</p>
+
+<p>
+  The other way to represent multiple values is using a separator. The
+  specifications indicate that if you want to have multiple values in the
+  same header line, you <code>should</code> use a comma (<code>,</code>) as a
+  separator. However, you <code>may</code> use any other separator you want.
+  The <code>SetCookie</code> header is a prime example of a header allowing
+  multiple values that uses a completely different separator (semicolon)!
+</p>
+
+<p>
+  So, to summarize:
+</p>
+
+<ul><li>A header may or may not allow multiple values.</li>
+  <li>Headers may be emitted more than once. If a header allows multiple values,
+    then its value is the aggregate of each representation. If the header only
+    allows one value, the last representation is the canonical value for that
+    header.</li>
+  <li>Headers may use a separator character in a single line in order to
+    separate multiple values. That character is suggested to be a comma, but it
+    can vary per-header.</li>
+</ul><p>
+  The other big ambiguity in the specification is that the specification is
+  <em>extensible</em>, and specifically allows for <em>custom</em> headers.
+</p>
+
+<p>
+  This means that any general-purpose code representing HTTP, such as PSR-7,
+  cannot possibly know the entire ruleset governing all possible HTTP messages,
+  as it cannot know all potential header types, including whether they allow
+  multiple values or not.
+</p>
+
+<p>
+  With these two facts in mind — headers <em>may</em> have multiple
+  values, and <em>custom</em> headers are allowed — we made the following
+  decisions with PSR-7:
+</p>
+
+<h3>All headers are collections</h3>
+
+<p>
+  All headers are assumed to have multiple values. This gives consistency of
+  usage, and puts the onus of knowing the semantics of any given header to the
+  consumer.
+</p>
+
+<p>
+  For that reason, the most basic access for a given header,
+  <code>getHeader($name)</code>, returns an array. That array can have the
+  following values:
+</p>
+
+<ul><li>It can be empty; this means the header was not, or will not be, present in
+    the representation.</li>
+  <li>A single string value.</li>
+  <li>More than one string value.</li>
+</ul><h3>Naive Concatenation</h3>
+
+<p>
+  Since the majority of headers only allow single values, and since most
+  existing libraries that parse headers only accept strings, we provided another
+  method, <code>getHeaderLine($name)</code>. This method guarantees return of a
+  string:
+</p>
+
+<ul><li>If the header has no values, the string will be empty.</li>
+  <li>Otherwise, it concatenates the values using a comma.</li>
+</ul><p>
+  We chose <em>not</em> to provide an argument indicating the separator to use,
+  as the specifica</p><p><i>Truncated by Planet PHP, read more at <a href="http://mwop.net/blog/2015-07-28-on-psr7-headers.html">the original</a> (another 5016 bytes)</i></p>]]></content:encoded></item><item rdf:about="http://akrabat.com/checking-your-code-for-psr-2/"><title>Checking your code for PSR-2</title><link>http://akrabat.com/checking-your-code-for-psr-2/</link><dc:date>2015-07-28T06:45:00Z</dc:date><dc:creator>Rob Allen</dc:creator><description><![CDATA[Most of the projects that I work on follow the PSR-2 coding style guidelines. I prefer to ensure that my PRs pass before Travis or Jenkins tells me, so let&#039;s look at how to run PSR-2 checks locally. PHP_CodeSniffer My preferred tool for checking coding styles in PHP is PHP_CodeSniffer. This is command line tool, […]]]></description><content:encoded><![CDATA[<p>Most of the projects that I work on follow the <a href="http://www.php-fig.org/psr/psr-2/">PSR-2</a> coding style guidelines. I prefer to ensure that my PRs pass before Travis or Jenkins tells me, so let's look at how to run PSR-2 checks locally.</p>
+<h2>PHP_CodeSniffer</h2>
+<p>My preferred tool for checking coding styles in PHP is <a href="https://github.com/squizlabs/PHP_CodeSniffer">PHP_CodeSniffer</a>. This is command line tool, <tt>phpcs</tt>, that you can run against any file. </p>
+<p>PHP_CodeSniffer can test against a number of standards. The default is PEAR, so you must use the command line switch <tt>--standard=PSR2</tt> in order for it to check against the right one.</p>
+<p>Let's take an example from <a href="https://m.joind.in">joind.in</a>'s <a href="https://github.com/joindin/joindin-web2">web2</a> project:</p>
+<pre>
+$ phpcs --standard=PSR2 BaseApi.php
+
+FILE: ...joind.in/joindin-vm/joindin-web2/app/src/Application/BaseApi.php
+----------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+----------------------------------------------------------------------
+ 11 | ERROR | [x] Expected 1 space after closing parenthesis; found 9
+----------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------
+
+Time: 70ms; Memory: 6Mb
+</pre>
+<p>This is the code that's wrong:</p>
+<pre>
+if (isset($config['apiUrl']))
+{
+    $this->baseApiUrl = $config['apiUrl'];
+}
+</pre>
+<p>The opening brace is in the wrong place.</p>
+<p>If there is a note that PHPCBF can fix some validations automatically, then you can run the <tt>phpcbf</tt> command line tool to automatically fix your code:</p>
+<pre>
+$ phpcbf --standard=PSR2 BaseApi.php
+Changing into directory .../joindin-vm/joindin-web2/app/src/Application
+Processing BaseApi.php [PHP => 1452 tokens in 186 lines]... DONE in 52ms (1 fixable violations)
+        => Fixing file: 0/1 violations remaining [made 3 passes]... DONE in 163ms
+Patched 1 file
+Time: 246ms; Memory: 8Mb
+</pre>
+<p>And phpcbf has changed the code to be compliant:</p>
+<pre>
+if (isset($config['apiUrl'])) {
+    $this->baseApiUrl = $config['apiUrl'];
+}
+</pre>
+<p>Obviously, not all violations can be automatically fixed, but a good number can be.</p>
+<h2>Automating with Phing</h2>
+<p>Generally you want to be able to run phpcs across all your source files without too much effort and also get your CI tool to do the same. My preferred choice here is to use <a href="https://www.phing.info">Phing</a>.</p>
+<p>Each command within a Phing build.xml file is called a target. The PHP_CodeSniffer target for the web2 project is:</p>
+<pre>
+&lt;target name="phpcs">
+ &lt;phpcodesniffer standard="PSR2"
+      description="Run PSR2 standards over the codebase"
+      haltonerror="true">
+   &lt;fileset dir="${basedir}/app">
+     &lt;include name="**/*.php"/>
+   &lt;/fileset>
+   &lt;fileset dir="${basedir}/tests">
+     &lt;include name="**/*.php"/>
+   &lt;/fileset>
+   &lt;formatter type="full" usefile="false"/>
+ &lt;/phpcodesniffer>
+&lt;/target>
+</pre>
+<p>With this target we run <tt>phpcs</tt> over all PHP files in the `app` and `tests` directories. We run it like this:</p>
+<pre>
+$ phing phpcs
+</pre>
+<p>As Phing is simply a build tool, the error output is the same format as earlier.</p>
+<h2>Editor integration</h2>
+<p>I use Vim and Sublime Text 3, which both have plugins for checking syntax.</p>
+<h3>Syntastic for Vim</h3>
+<p><a href="https://github.com/scrooloose/syntastic">Syntastic</a> is a great plugin for Vim that checks syntax for any language that you can think of. Install it using your preferred method and then for PHP linting and PSR-2 checking set up in your <tt>.vimrc</tt> like this:</p>
+<pre>
+" Syntastic
+let g:syntastic_php_checkers=['php', 'phpcs']
+let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
+</pre>
+<p>You can also add Syntastic summary information to the status line using <tt>%{SyntasticStatuslineFlag()}</tt>.</p>
+<p>The display looks like this (Yes, I like white backgrounds for editing, sorry!):</p>
+<p><img src="http://akrabat.com/wp-content/uploads/2015/07/2015-syntastic-psr2.png" alt="Syntastic PSR2 checking" border="0" width="1026" height="380"/></p>
+<p>When you save the file, Syntactic runs the checkers that you've set up, <tt>php -l</tt> and <tt>phpcs --standard=PSR2 -n</tt> in this case and displays any errors with a red <tt>S></tt> in the gutter and if you've enabled it, a summary in the status line. When your cursor is on that line, then the error is displayed at the very bottom.</p>
+<h3>SublimeLinter for Sublime Text 3</h3>
+<p>The <a href="http://www.sublimelinter.com/en/latest/">SublimeLinter</a> project does for Sublime Text 3. You need to install "SublimeLinter", </p><p><i>Truncated by Planet PHP, read more at <a href="http://akrabat.com/checking-your-code-for-psr-2/">the original</a> (another 1476 bytes)</i></p>]]></content:encoded></item><item rdf:about="http://feedproxy.google.com/~r/VoicesOfTheElephpant/~3/MShU5hFo1p4/"><title>PHP South Coast Wrap-up</title><link>http://feedproxy.google.com/~r/VoicesOfTheElephpant/~3/MShU5hFo1p4/</link><dc:date>2015-07-28T05:00:00Z</dc:date><dc:creator>Cal Evans</dc:creator><description><![CDATA[<p>Rich Sage @rich_81 Dave Baker @fully_baked James Titcumb @asgrim Show Notes PHP South Coast 2015 PHP Dorset Brighton PHP PHP Hampshire</p>
+<p>The post <a rel="nofollow" href="https://voicesoftheelephpant.com/2015/07/28/php-south-coast-wrap-up/">PHP South Coast Wrap-up</a> appeared first on <a rel="nofollow" href="https://voicesoftheelephpant.com">Voices of the ElePHPant</a>.</p>
+]]></description><content:encoded><![CDATA[<div style="width:600px;">
+<p>Rich Sage <a href="https://twitter.com/rich_81" target="_blank">@rich_81</a></p>
+<p>Dave Baker <a href="https://twitter.com/fully_baked" target="_blank">@fully_baked</a></p>
+<p>James Titcumb <a href="https://twitter.com/asgrim" target="_blank">@asgrim</a></p>
+<h3>Show Notes</h3>
+<ul>
+<li><a href="http://2015.phpsouthcoast.co.uk/" target="_blank">PHP South Coast 2015</a></li>
+<li><a href="http://www.phpdorset.co.uk/" target="_blank">PHP Dorset</a></li>
+<li><a href="http://brightonphp.org/" target="_blank">Brighton PHP</a></li>
+<li><a href="http://phphants.co.uk/" target="_blank">PHP Hampshire</a></li>
+</ul>
+</div>
+<div>
+
+</div>
+<p>The post <a rel="nofollow" href="https://voicesoftheelephpant.com/2015/07/28/php-south-coast-wrap-up/">PHP South Coast Wrap-up</a> appeared first on <a rel="nofollow" href="https://voicesoftheelephpant.com">Voices of the ElePHPant</a>.</p>
+<div class="feedflare">
+<a href="http://feeds.feedburner.com/~ff/VoicesOfTheElephpant?a=MShU5hFo1p4:lwPz9lfb0ws:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/VoicesOfTheElephpant?d=yIl2AUoC8zA" border="0"></img></a> <a href="http://feeds.feedburner.com/~ff/VoicesOfTheElephpant?a=MShU5hFo1p4:lwPz9lfb0ws:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/VoicesOfTheElephpant?d=qj6IDK7rITs" border="0"></img></a>
+</div><img src="http://feeds.feedburner.com/~r/VoicesOfTheElephpant/~4/MShU5hFo1p4" height="1" width="1" alt=""/>]]></content:encoded></item><item rdf:about="http://www.phpclasses.org/reviews/id/symfonycer.html#review176"><title>Review: Symfony Certification</title><link>http://www.phpclasses.org/reviews/id/symfonycer.html#review176</link><dc:date>2015-07-28T04:41:00Z</dc:date><dc:creator>PHP Classes</dc:creator><description><![CDATA[<div style="clear: both">
+<div style="float: right"><img class="photo" src="https://s3.amazonaws.com/titlepages.leanpub.com/symfony-selfstudy/small?1427799427" width="120" height="156" alt="Symfony Certification" /></div>
+<div style="font-weight: bold; font-size: larger; margin-top: 1ex">Title</div>
+<div><a href="http://www.phpclasses.org/reviews/id/symfonycer.html#review176">Symfony Certification</a></div>
+<div style="font-weight: bold; font-size: larger; margin-top: 1ex">Reviewer</div>
+<div>Joseluis Laso</div>
+<div style="font-weight: bold; font-size: larger; margin-top: 1ex">Category</div>
+<div>PHP books</div>
+<div style="font-weight: bold; font-size: larger; margin-top: 1ex">Publisher</div>
+<div>Leanpub</div>
+<div style="font-weight: bold; font-size: larger; margin-top: 1ex">Author</div>
+<div>Raúl Fraile</div>
+<div style="font-weight: bold; font-size: larger; margin-top: 1ex">Summary</div>
+<div><span name="description">Symfony Certification self-study is a well structured book, if can say, following all the subjects proposed by SensioLabs in their official site.<br />
+<br />
+Like the author, I was in the same certification exam, getting so nervous but having a great desire of learning from that experience.<br />
+<br />
+Years later and after having worked intensively in several Symfony2 projects, I still remember how scared I was looking at those questions in front of the very own Fabien Potencier.<br />
+<br />
+Now that I finished this book review, I am looking forward to get my hands dirty and read each of the more than 250 questions and their detailed explanations.<br />
+<br />
+This time I have the goal that I will be able to get the Symfony certification, without doubts, much better prepared when compared with the last time I tried it years ago.</span></div>
+</div>
+]]></description><content:encoded><![CDATA[<div style="clear: both">
+<div style="float: right"><img class="photo" src="https://s3.amazonaws.com/titlepages.leanpub.com/symfony-selfstudy/small?1427799427" width="120" height="156" alt="Symfony Certification" /></div>
+<div style="font-weight: bold; font-size: larger; margin-top: 1ex">Title</div>
+<div><a href="http://www.phpclasses.org/reviews/id/symfonycer.html#review176">Symfony Certification</a></div>
+<div style="font-weight: bold; font-size: larger; margin-top: 1ex">Reviewer</div>
+<div>Joseluis Laso</div>
+<div style="font-weight: bold; font-size: larger; margin-top: 1ex">Category</div>
+<div>PHP books</div>
+<div style="font-weight: bold; font-size: larger; margin-top: 1ex">Publisher</div>
+<div>Leanpub</div>
+<div style="font-weight: bold; font-size: larger; margin-top: 1ex">Author</div>
+<div>Raúl Fraile</div>
+<div style="font-weight: bold; font-size: larger; margin-top: 1ex">Summary</div>
+<div><span name="description">Symfony Certification self-study is a well structured book, if can say, following all the subjects proposed by SensioLabs in their official site.<br />
+<br />
+Like the author, I was in the same certification exam, getting so nervous but having a great desire of learning from that experience.<br />
+<br />
+Years later and after having worked intensively in several Symfony2 projects, I still remember how scared I was looking at those questions in front of the very own Fabien Potencier.<br />
+<br />
+Now that I finished this book review, I am looking forward to get my hands dirty and read each of the more than 250 questions and their detailed explanations.<br />
+<br />
+This time I have the goal that I will be able to get the Symfony certification, without doubts, much better prepared when compared with the last time I tried it years ago.</span></div>
+</div>
+]]></content:encoded></item><item rdf:about="http://www.sitepoint.com/speeding-up-existing-apps-with-a-redis-cache/"><title>Speeding up Existing Apps with a Redis Cache</title><link>http://www.sitepoint.com/speeding-up-existing-apps-with-a-redis-cache/</link><dc:date>2015-07-27T16:00:00Z</dc:date><dc:creator>SitePoint PHP</dc:creator><description><![CDATA[<p>We’ve gone through the basics of Redis in PHP <a href="http://www.sitepoint.com/an-introduction-to-redis-in-php-using-predis/">before</a>, but it’s time to cover a real life use case. In this tutorial, we’ll add it to an already <a href="http://www.sitepoint.com/deploying-php-apps-digitalocean-dploy-io/">deployed application</a> to give the app the appearance of speed.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Redis_Logo.svg/467px-Redis_Logo.svg.png" alt="Redis Logo" title=""/></p>
+<p>You can easily follow along by cloning the <a href="https://github.com/Swader/diffbot-sp-search/releases/tag/0.6">0.6 release of the app</a>.</p>
+<h2 id="the-problem">The Problem</h2>
+<p>Before applying a solution, we need to have a clear definition of the problem. </p>
+<p><a href="http://search.sitepoint.tools">The application in question</a>, when executing a query, runs off to <a href="http://www.sitepoint.com/turning-crawled-website-search-engine-php/">Diffbot’s API</a> and makes it query the dataset. The subset is then returned and displayed. This can take up to 5 or so seconds, depending on the busyness of Diffbot’s servers. While the situation will undoubtedly improve as they expand their computational capacity, it would be nice if a query executed once were remembered and reused for 24 hours, seeing as the collection is only refreshed that often <a href="http://www.sitepoint.com/crawling-searching-entire-domains-diffbot/">anyway</a>.</p>
+<p>“But what good is caching a single query?” you might wonder. It’s not like most people will search for one and the same thing often. </p>
+<p>Well… as a matter of fact, not only has research shown that they will often search for one and the same thing (React is trending? Sudden influx of “react” queries), they will also very reliably search for prolific authors (or themselves). Considering the fact that implementing this cache costs us literally nothing (and actually reduces costs by reducing strain on the servers), adding it in is an easy win, even if it weren’t used as often as one would hope. There is <em>no reason not to add it</em> - it can <em>only</em> benefit us.</p>
+<p>With the problem clearly defined, let’s handle the prerequisites.</p>
+<p><em>Continue reading %<a rel="nofollow" href="http://www.sitepoint.com/speeding-up-existing-apps-with-a-redis-cache/">Speeding up Existing Apps with a Redis Cache</a>%</em></p>
+]]></description><content:encoded><![CDATA[<p>We’ve gone through the basics of Redis in PHP <a href="http://www.sitepoint.com/an-introduction-to-redis-in-php-using-predis/">before</a>, but it’s time to cover a real life use case. In this tutorial, we’ll add it to an already <a href="http://www.sitepoint.com/deploying-php-apps-digitalocean-dploy-io/">deployed application</a> to give the app the appearance of speed.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Redis_Logo.svg/467px-Redis_Logo.svg.png" alt="Redis Logo" title=""/></p>
+<p>You can easily follow along by cloning the <a href="https://github.com/Swader/diffbot-sp-search/releases/tag/0.6">0.6 release of the app</a>.</p>
+<h2 id="the-problem">The Problem</h2>
+<p>Before applying a solution, we need to have a clear definition of the problem. </p>
+<p><a href="http://search.sitepoint.tools">The application in question</a>, when executing a query, runs off to <a href="http://www.sitepoint.com/turning-crawled-website-search-engine-php/">Diffbot’s API</a> and makes it query the dataset. The subset is then returned and displayed. This can take up to 5 or so seconds, depending on the busyness of Diffbot’s servers. While the situation will undoubtedly improve as they expand their computational capacity, it would be nice if a query executed once were remembered and reused for 24 hours, seeing as the collection is only refreshed that often <a href="http://www.sitepoint.com/crawling-searching-entire-domains-diffbot/">anyway</a>.</p>
+<p>“But what good is caching a single query?” you might wonder. It’s not like most people will search for one and the same thing often. </p>
+<p>Well… as a matter of fact, not only has research shown that they will often search for one and the same thing (React is trending? Sudden influx of “react” queries), they will also very reliably search for prolific authors (or themselves). Considering the fact that implementing this cache costs us literally nothing (and actually reduces costs by reducing strain on the servers), adding it in is an easy win, even if it weren’t used as often as one would hope. There is <em>no reason not to add it</em> - it can <em>only</em> benefit us.</p>
+<p>With the problem clearly defined, let’s handle the prerequisites.</p>
+<p><em>Continue reading %<a rel="nofollow" href="http://www.sitepoint.com/speeding-up-existing-apps-with-a-redis-cache/">Speeding up Existing Apps with a Redis Cache</a>%</em></p>
+]]></content:encoded></item><item rdf:about="http://www.phpclasses.org/blog/package/9195/post/1-How-to-Render-3D-Surfaces-in-PHP-using-2D-Contour-Plots.html"><title>How to Render 3D Surfaces in PHP using 2D Contour Plots</title><link>http://www.phpclasses.org/blog/package/9195/post/1-How-to-Render-3D-Surfaces-in-PHP-using-2D-Contour-Plots.html</link><dc:date>2015-07-27T07:32:00Z</dc:date><dc:creator>PHP Classes</dc:creator><description><![CDATA[<div style="clear: both">
+<div style="margin-top: 1ex"><a href="http://www.phpclasses.org/blog/package/9195/post/1-How-to-Render-3D-Surfaces-in-PHP-using-2D-Contour-Plots.html">How to Render 3D Surfaces in PHP using 2D Contour Plots</a></div>
+<div style="margin-top: 1ex">By Dan Thanh</a></div>
+<div style="margin-top: 1ex">Contour plots are graphics that render lines that connect points in a geographic region that have the same value, for instance points in a terrain with the same altitude. They are useful for instance to represent 3D features of a terrain in a 2D image.<br />
+<br />
+Read this article to learn more about contour plots and how to render them using the PHP Contour Plot package.</a></div>
+</div>
+]]></description><content:encoded><![CDATA[<div style="clear: both">
+<div style="margin-top: 1ex"><a href="http://www.phpclasses.org/blog/package/9195/post/1-How-to-Render-3D-Surfaces-in-PHP-using-2D-Contour-Plots.html">How to Render 3D Surfaces in PHP using 2D Contour Plots</a></div>
+<div style="margin-top: 1ex">By Dan Thanh</a></div>
+<div style="margin-top: 1ex">Contour plots are graphics that render lines that connect points in a geographic region that have the same value, for instance points in a terrain with the same altitude. They are useful for instance to represent 3D features of a terrain in a 2D image.<br />
+<br />
+Read this article to learn more about contour plots and how to render them using the PHP Contour Plot package.</a></div>
+</div>
+]]></content:encoded></item></rdf:RDF>
