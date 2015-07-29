@@ -3,10 +3,10 @@
 namespace FeedAdapter\Adapters;
 
 
-use App\Repository\AbstractRepository;
+use FeedAdapter\AdapterAbstract;
 use FeedAdapter\AdapterInterface;
 
-class PlanetMysql extends AbstractRepository implements AdapterInterface
+class PlanetMysql extends AdapterAbstract implements AdapterInterface
 {
 
     public function get(\DateTime $date)

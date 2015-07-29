@@ -9,11 +9,13 @@
 namespace App\Repository;
 
 
-class AbstractRepository {
+class AbstractRepository
+{
 
     protected $db;
 
-    public function __construct(\PDO $db){
+    public function __construct(\PDO $db)
+    {
         $this->db = $db;
     }
 }
