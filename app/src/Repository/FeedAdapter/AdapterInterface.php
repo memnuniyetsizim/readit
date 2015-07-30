@@ -3,7 +3,8 @@
 namespace FeedAdapter;
 
 
-interface AdapterInterface {
+interface AdapterInterface
+{
 
     public function get(\DateTime $date);
 }
