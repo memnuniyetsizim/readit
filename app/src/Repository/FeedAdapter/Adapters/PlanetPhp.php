@@ -35,7 +35,7 @@ class PlanetPhp extends AdapterAbstract implements AdapterInterface, Rss_1_0
         $feeds = [];
         try{
             $xml = new \SimpleXMLElement($content);
-            foreach($xml->{self::root}->{self::item} as $item) {
+            foreach($xml->{self::item} as $item) {
                 array_push($feeds,
                     (new Feed())
                         ->setLink($item->{self::url})
@@ -46,9 +46,9 @@ class PlanetPhp extends AdapterAbstract implements AdapterInterface, Rss_1_0
             }
         }
         catch(\Exception $e) {
-            throw new ParserException();
+            throw new ParserException($e->getMessage(), $e->getCode());
         }
-
+        return $feeds;
     }
 
 }
