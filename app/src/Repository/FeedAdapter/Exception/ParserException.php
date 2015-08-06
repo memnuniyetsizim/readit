@@ -9,6 +9,6 @@
 namespace App\Repository\FeedAdapter\Exception;
 
 
-class ParserException extends \Exception{
+class ParserException extends \Exception {
 
 }
