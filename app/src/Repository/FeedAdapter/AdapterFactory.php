@@ -4,50 +4,30 @@ namespace FeedAdapter;
 
 
 use FeedAdapter\Exception\AdapterNotFound;
+use GuzzleHttp\Client;
 
 class AdapterFactory
 {
 
-    private $adapters = [];
-
-    private $methods = [];
-
-    public function __construct()
+    public static function get($standard)
     {
-        // build method mapping
-        $this->methods = [
-            'planetphp'   => 'getPlanetPhp',
-            'planetmysql' => 'getPlanetMysql'
-        ];
-    }
-
-    public function get($id)
-    {
-        $id = strtolower($id);
-        if (isset($this->adapters[ $id ])) {
-            return $this->adapters[ $id ];
+        $class_name = self::getNamespace().self::getClassName($standard);
+        if(class_exists($class_name)) {
+            return new $class_name(new Client());
         }
-
-        if (!isset($this->methods[ $id ])) {
-            throw new AdapterNotFound('Adapter not found');
+        else{
+            throw new AdapterNotFound($standard.' ('.$class_name.') is not implemented or does not exist');
         }
-
-        $method = $this->methods[ $id ];
-
-        return call_user_func([$this, $method]);
     }
 
-    /**
-     * @return Adapters\PlanetPhp
-     */
-    private function getPlanetPhp()
+    public static function getClassName($standard)
     {
-
-        return $this->adapters['planetphp'] = new Adapters\PlanetPhp();
+        return ucwords(strtolower(str_replace([' ','.'],'_',$standard)));
     }
 
-    private function getPlanetMysql()
+    private static function getNamespace()
     {
-        return $this->adapters['planetmysql'] = new Adapters\PlanetMysql();
+        return 'FeedAdapter\Adapters\\';
     }
+
 }
