@@ -8,19 +8,20 @@
 
 namespace FeedAdapter\Adapters;
 
+use App\Entity\Feed;
 use App\Repository\FeedAdapter\Exception\ParserException;
 use FeedAdapter\AdapterAbstract;
 use FeedAdapter\AdapterInterface;
-use App\Entity\Feed;
 use GuzzleHttp\Client;
 
-class Atom extends AdapterAbstract implements AdapterInterface {
+class Atom extends AdapterAbstract implements AdapterInterface
+{
 
-    const item = 'entry';
-    const title = 'title';
-    const description = 'summary';
-    const publish_date = 'updated';
-    const url = 'link';
+    const ITEM = 'entry';
+    const TITLE = 'title';
+    const DESCRIPTION = 'summary';
+    const PUBLISH_DATE = 'updated';
+    const URL = 'link';
 
     public function __construct(Client $client)
     {
@@ -30,16 +31,16 @@ class Atom extends AdapterAbstract implements AdapterInterface {
 
     /**
      * @param $content
+     *
      * @return Feed[]
      * @throws ParserException
      */
     public function parse($content)
     {
 
-        try{
-            return parent::parse($content, self::item, self::url, self::description, self::title, self::publish_date);
-        }
-        catch(\Exception $e) {
+        try {
+            return parent::parse($content, self::ITEM, self::URL, self::DESCRIPTION, self::TITLE, self::PUBLISH_DATE);
+        } catch (\Exception $e) {
             throw new ParserException($e->getMessage(), $e->getCode());
         }
 

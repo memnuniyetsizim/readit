@@ -15,6 +15,16 @@
       <directory>./tests/unit</directory>
     </testsuite>
   </testsuites>
+    <filter>
+        <whitelist>
+            <directory>./app</directory>
+            <exclude>
+                <directory>./cache</directory>
+                <directory>./vendor</directory>
+                <directory>./tests</directory>
+            </exclude>
+        </whitelist>
+    </filter>
   <logging>
 	  <log type="covarage-clover" target="logs/clover.xml"/>
   </logging>
