@@ -47,8 +47,12 @@ abstract class AdapterAbstract
 
     /**
      * @param $content
-     *
-     * @return Feed
+     * @param $loop_element
+     * @param $url
+     * @param $description
+     * @param $title
+     * @param $publish_date
+     * @return Feed[]
      */
     public function parse($content, $loop_element, $url, $description, $title, $publish_date)
     {
