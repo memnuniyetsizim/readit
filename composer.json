@@ -46,7 +46,7 @@
         "ext-pdo_mysql": "*",
         "slim/slim": "^3.0@beta",
         "slim/twig-view": "^1.1",
-        "slim/flash": "dev-master",
+        "slim/flash": "^0.1.0",
         "swiftmailer/swiftmailer": "~5.0",
         "psr/log": "~1.0",
         "monolog/monolog": "^1.13"
