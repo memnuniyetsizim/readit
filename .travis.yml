@@ -13,6 +13,9 @@ before_script:
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar install --dev
   - php -S localhost:8000 -t public public/index.php  > /dev/null &
-  
+
+after_script:
+  - ./codeclimate.sh
+ 
 script:
   - php vendor/bin/codecept run
