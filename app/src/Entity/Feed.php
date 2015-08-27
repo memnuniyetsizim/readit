@@ -8,7 +8,7 @@ class Feed {
     private $link;
     private $title;
     private $description;
-    private $publish_date;
+    private $publishDate;
 
     /**
      * @return mixed
@@ -65,20 +65,20 @@ class Feed {
     }
 
     /**
-     * @return mixed
+     * @return \DateTime
      */
     public function getPublishDate()
     {
-        return $this->publish_date;
+        return $this->publishDate;
     }
 
     /**
-     * @param mixed $publish_date
+     * @param \Datetime $publishDate
      * @return $this
      */
-    public function setPublishDate(\Datetime $publish_date)
+    public function setPublishDate(\Datetime $publishDate)
     {
-        $this->publish_date = $publish_date;
+        $this->publishDate = $publishDate;
         return $this;
     }
 }
