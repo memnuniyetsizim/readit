@@ -1,7 +1,7 @@
 <?php
 
 
-class PlanetPhpTest extends \Codeception\TestCase\Test
+class AtomTest extends \Codeception\TestCase\Test
 {
     /**
      * @var \UnitTester
@@ -17,15 +17,11 @@ class PlanetPhpTest extends \Codeception\TestCase\Test
     }
 
     // tests
-    public function testMe()
+    public function testParser()
     {
+        $data = file_get_contents(__DIR__.'/../_data/atom.xml');
 
-    }
-
-    public function testParser() {
-        $data = file_get_contents(__DIR__.'/../../data/rss10.xml');
-
-        $parser = new \FeedAdapter\Adapters\PlanetPhp();
+        $parser = new \FeedAdapter\Adapters\Atom(new \GuzzleHttp\Client());
         $response = $parser->parse($data);
 
         foreach ($response as $r) {
