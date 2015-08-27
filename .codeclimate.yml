@@ -1,0 +1,28 @@
+languages:
+   PHP: true
+   
+engines:
+  rubocop:
+    enabled: true
+  golint:
+    enabled: true
+  gofmt:
+    enabled: true
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+
+# For more details see here:
+# http://docs.codeclimate.com/article/289-configuring-your-repository-via-codeclimate-yml#platform
+
+ratings:
+   paths:
+   - app/**
+   - public/**
+
+exclude_paths:
+- data/**/*
+- vendor/**/*
+- cache/**/*
+- tests/**/*
