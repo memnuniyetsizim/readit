@@ -5,10 +5,19 @@ namespace FeedAdapter;
 
 
 use App\Entity\Feed;
+use App\Repository\FeedAdapter\Exception\ParserException;
 use GuzzleHttp\Client;
 
 abstract class AdapterAbstract
 {
+
+    protected $elements = [
+        'item' => 'item',
+        'title' => 'title',
+        'description' => 'description',
+        'publishDate' => 'pubDate',
+        'url' => 'link'
+    ];
 
     private $client;
     protected $request_endpoint;
@@ -26,7 +35,7 @@ abstract class AdapterAbstract
      */
     private function request()
     {
-        if(!isset($this->request_endpoint)){
+        if (!isset($this->request_endpoint)) {
             throw new \BadMethodCallException('Endpoint should be set before request');
         }
 
@@ -39,7 +48,7 @@ abstract class AdapterAbstract
      */
     public function setEndpoint($endpoint)
     {
-        if(filter_var($endpoint, FILTER_VALIDATE_URL) === false) {
+        if (filter_var($endpoint, FILTER_VALIDATE_URL) === false) {
             throw new \InvalidArgumentException('Endpoint should be a valid url');
         }
         $this->request_endpoint = $endpoint;
@@ -47,36 +56,35 @@ abstract class AdapterAbstract
 
     /**
      * @param $content
-     * @param $loop_element
-     * @param $url
-     * @param $description
-     * @param $title
-     * @param $publish_date
-     * @return Feed[]
+     * @return array
+     * @throws ParserException
      */
-    public function parse($content, $loop_element, $url, $description, $title, $publish_date)
+    public function parse($content)
     {
-        $feeds = [];
-        $xml = new \SimpleXMLElement($content);
-        foreach($xml->{$loop_element} as $item) {
-            array_push($feeds,
-                (new Feed())
-                    ->setLink($item->{$url})
-                    ->setDescription($item->{$description})
-                    ->setTitle($item->{$title})
-                    ->setPublishDate(new \DateTime($item->{$publish_date}))
-            );
+        try {
+            $feeds = [];
+            $xml = new \SimpleXMLElement($content);
+            foreach ($xml->{$this->elements['item']} as $item) {
+                array_push($feeds,
+                    (new Feed())
+                        ->setLink($item->{$this->elements['url']})
+                        ->setDescription($item->{$this->elements['description']})
+                        ->setTitle($item->{$this->elements['title']})
+                        ->setPublishDate(new \DateTime($item->{$this->elements['publishDate']}))
+                );
+            }
+            return $feeds;
+        } catch (\Exception $e) {
+            throw new ParserException($e);
         }
-
-        return $feeds;
     }
 
     /**
      * @param Feed $feed
-     *
-     * @return Bool
+     * @param \PDO $pdo
      */
-    protected function save(Feed $feed, \PDO $pdo) {
+    protected function save(Feed $feed, \PDO $pdo)
+    {
 
     }
 }

@@ -1,15 +1,16 @@
 <?php
 $container = $app->getContainer();
 
-$view = new \Slim\Views\Twig(
-    $app->settings['view']['template_path'],
-    $app->settings['view']['twig']
-);
-$view->addExtension(new Twig_Extension_Debug());
-$view->addExtension(new \Slim\Views\TwigExtension($app->router, $app->request->getUri()));
-$container->register($view);
+$container['view'] = function ($c) {
+    $view = new \Slim\Views\Twig($c['settings']['view']['template_path'], $c['settings']['view']['twig']);
+    $view->addExtension(new Slim\Views\TwigExtension($c['router'], $c['request']->getUri()));
+    $view->addExtension(new Twig_Extension_Debug());
+    return $view;
+};
 
-$container->register(new \Slim\Flash\Messages);
+$container['flash'] = function () {
+    return new \Slim\Flash\Messages;
+};
 
 $container['logger'] = function ($c) {
     $settings = $c['settings']['logger'];
@@ -19,7 +20,9 @@ $container['logger'] = function ($c) {
     return $logger;
 };
 
-$container['adapterFactory'] = new FeedAdapter\AdapterFactory();
+$container['adapterFactory'] = function () {
+    return new FeedAdapter\AdapterFactory();
+};
 
 $container['App\Action\HomeAction'] = function ($c) {
     return new App\Action\HomeAction($c['view'], $c['logger']);
