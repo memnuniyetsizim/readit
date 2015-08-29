@@ -18,10 +18,6 @@ class Rss_1_0 extends AdapterAbstract implements AdapterInterface
         'url' => 'link'
     ];
 
-    public function __construct(Client $client)
-    {
-        parent::__construct($client);
-    }
 
     public function get(\DateTime $date)
     {
