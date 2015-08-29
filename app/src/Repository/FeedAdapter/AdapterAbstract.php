@@ -33,7 +33,7 @@ abstract class AdapterAbstract
     /**
      * @return \Psr\Http\Message\ResponseInterface
      */
-    private function request()
+    protected function request()
     {
         if (!isset($this->request_endpoint)) {
             throw new \BadMethodCallException('Endpoint should be set before request');
