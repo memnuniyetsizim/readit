@@ -1,8 +1,6 @@
 <?php
 
-
 namespace FeedAdapter;
-
 
 use App\Entity\Feed;
 use App\Repository\FeedAdapter\Exception\ParserException;
@@ -10,18 +8,16 @@ use GuzzleHttp\Client;
 
 abstract class AdapterAbstract
 {
-
     protected $elements = [
-        'item' => 'item',
-        'title' => 'title',
+        'item'        => 'item',
+        'title'       => 'title',
         'description' => 'description',
         'publishDate' => 'pubDate',
-        'url' => 'link'
+        'url'         => 'link',
     ];
 
     private $client;
     protected $request_endpoint;
-
 
     public function __construct(Client $client)
     {
@@ -42,7 +38,6 @@ abstract class AdapterAbstract
         return $this->client->get($this->request_endpoint);
     }
 
-
     /**
      * @param $endpoint
      */
@@ -56,8 +51,10 @@ abstract class AdapterAbstract
 
     /**
      * @param $content
-     * @return array
+     *
      * @throws ParserException
+     *
+     * @return array
      */
     public function parse($content)
     {
@@ -73,6 +70,7 @@ abstract class AdapterAbstract
                         ->setPublishDate(new \DateTime($item->{$this->elements['publishDate']}))
                 );
             }
+
             return $feeds;
         } catch (\Exception $e) {
             throw new ParserException($e);
@@ -85,6 +83,5 @@ abstract class AdapterAbstract
      */
     protected function save(Feed $feed, \PDO $pdo)
     {
-
     }
 }

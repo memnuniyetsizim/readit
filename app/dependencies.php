@@ -1,15 +1,17 @@
 <?php
+
 $container = $app->getContainer();
 
 $container['view'] = function ($c) {
     $view = new \Slim\Views\Twig($c['settings']['view']['template_path'], $c['settings']['view']['twig']);
     $view->addExtension(new Slim\Views\TwigExtension($c['router'], $c['request']->getUri()));
     $view->addExtension(new Twig_Extension_Debug());
+
     return $view;
 };
 
 $container['flash'] = function () {
-    return new \Slim\Flash\Messages;
+    return new \Slim\Flash\Messages();
 };
 
 $container['logger'] = function ($c) {
@@ -17,6 +19,7 @@ $container['logger'] = function ($c) {
     $logger = new \Monolog\Logger($settings['name']);
     $logger->pushProcessor(new \Monolog\Processor\UidProcessor());
     $logger->pushHandler(new \Monolog\Handler\StreamHandler($settings['path'], \Monolog\Logger::DEBUG));
+
     return $logger;
 };
 
