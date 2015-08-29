@@ -2,20 +2,18 @@
 
 namespace FeedAdapter;
 
-
 use FeedAdapter\Exception\AdapterNotFound;
 use GuzzleHttp\Client;
 
 class AdapterFactory
 {
-
     public static function get($standard)
     {
-        $class_name = self::getNamespace() . self::getClassName($standard);
+        $class_name = self::getNamespace().self::getClassName($standard);
         if (class_exists($class_name)) {
             return new $class_name(new Client());
         } else {
-            throw new AdapterNotFound($standard . ' (' . $class_name . ') is not implemented or does not exist');
+            throw new AdapterNotFound($standard.' ('.$class_name.') is not implemented or does not exist');
         }
     }
 
@@ -28,5 +26,4 @@ class AdapterFactory
     {
         return 'FeedAdapter\Adapters\\';
     }
-
 }

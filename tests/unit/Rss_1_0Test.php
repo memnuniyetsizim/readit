@@ -16,7 +16,8 @@ class Rss_1_0Test extends \Codeception\TestCase\Test
     {
     }
 
-    public function testParser() {
+    public function testParser()
+    {
         $data = file_get_contents(__DIR__.'/../_data/rss10.xml');
 
         $parser = new \FeedAdapter\Adapters\Rss_1_0(new \GuzzleHttp\Client());

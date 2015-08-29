@@ -2,9 +2,8 @@
 
 namespace App\Action;
 
-use Slim\Views\Twig;
 use Psr\Log\LoggerInterface;
-
+use Slim\Views\Twig;
 
 final class HomeAction
 {
@@ -20,6 +19,7 @@ final class HomeAction
     public function dispatch($request, $response, $args)
     {
         $this->view->render($response, 'home.twig');
+
         return $response;
     }
 }

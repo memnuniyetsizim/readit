@@ -2,9 +2,8 @@
 
 namespace App\Entity;
 
-
-class Feed {
-
+class Feed
+{
     private $link;
     private $title;
     private $description;
@@ -20,11 +19,13 @@ class Feed {
 
     /**
      * @param mixed $link
+     *
      * @return $this
      */
     public function setLink($link)
     {
         $this->link = $link;
+
         return $this;
     }
 
@@ -38,11 +39,13 @@ class Feed {
 
     /**
      * @param mixed $title
+     *
      * @return $this
      */
     public function setTitle($title)
     {
         $this->title = $title;
+
         return $this;
     }
 
@@ -56,11 +59,13 @@ class Feed {
 
     /**
      * @param mixed $description
+     *
      * @return $this
      */
     public function setDescription($description)
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -74,11 +79,13 @@ class Feed {
 
     /**
      * @param \Datetime $publishDate
+     *
      * @return $this
      */
     public function setPublishDate(\Datetime $publishDate)
     {
         $this->publishDate = $publishDate;
+
         return $this;
     }
 }

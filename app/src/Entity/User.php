@@ -2,9 +2,8 @@
 
 namespace App\Entity;
 
-
-class User {
-
+class User
+{
     /**
      * @var App\Entity\Feed[]
      */
