@@ -16,9 +16,10 @@ class AdapterFactoryTest extends \Codeception\TestCase\Test
     {
     }
 
-    public function testClassName(){
-        $this->assertSame('Rss_1_0',\FeedAdapter\AdapterFactory::getClassName('RSS 1.0'));
-        $this->assertSame('Atom',\FeedAdapter\AdapterFactory::getClassName('Atom'));
+    public function testClassName()
+    {
+        $this->assertSame('Rss_1_0', \FeedAdapter\AdapterFactory::getClassName('RSS 1.0'));
+        $this->assertSame('Atom', \FeedAdapter\AdapterFactory::getClassName('Atom'));
     }
 
     public function testRss10()

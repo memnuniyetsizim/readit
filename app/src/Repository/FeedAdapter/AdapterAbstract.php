@@ -3,14 +3,12 @@
 
 namespace FeedAdapter;
 
-
 use App\Entity\Feed;
 use App\Repository\FeedAdapter\Exception\ParserException;
 use GuzzleHttp\Client;
 
 abstract class AdapterAbstract
 {
-
     protected $elements = [
         'item' => 'item',
         'title' => 'title',
@@ -85,6 +83,5 @@ abstract class AdapterAbstract
      */
     protected function save(Feed $feed, \PDO $pdo)
     {
-
     }
 }

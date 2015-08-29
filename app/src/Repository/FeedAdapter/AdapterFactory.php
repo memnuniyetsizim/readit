@@ -2,13 +2,11 @@
 
 namespace FeedAdapter;
 
-
 use FeedAdapter\Exception\AdapterNotFound;
 use GuzzleHttp\Client;
 
 class AdapterFactory
 {
-
     public static function get($standard)
     {
         $class_name = self::getNamespace() . self::getClassName($standard);
@@ -28,5 +26,4 @@ class AdapterFactory
     {
         return 'FeedAdapter\Adapters\\';
     }
-
 }

@@ -9,7 +9,6 @@ use GuzzleHttp\Client;
 
 class Rss_1_0 extends AdapterAbstract implements AdapterInterface
 {
-
     protected $elements = [
         'item' => 'item',
         'title' => 'title',

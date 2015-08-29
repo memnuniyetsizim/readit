@@ -8,10 +8,8 @@
 
 namespace App\Repository;
 
-
 class AbstractRepository
 {
-
     protected $db;
 
     public function __construct(\PDO $db)
