@@ -5,7 +5,6 @@ namespace App\Action;
 use Slim\Views\Twig;
 use Psr\Log\LoggerInterface;
 
-
 final class HomeAction
 {
     private $view;

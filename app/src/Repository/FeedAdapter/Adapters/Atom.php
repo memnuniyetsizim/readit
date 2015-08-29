@@ -10,7 +10,6 @@ use GuzzleHttp\Client;
 
 class Atom extends AdapterAbstract implements AdapterInterface
 {
-
     protected $elements = [
         'item' => 'entry',
         'title' => 'title',

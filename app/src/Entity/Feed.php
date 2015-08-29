@@ -2,9 +2,8 @@
 
 namespace App\Entity;
 
-
-class Feed {
-
+class Feed
+{
     private $link;
     private $title;
     private $description;
